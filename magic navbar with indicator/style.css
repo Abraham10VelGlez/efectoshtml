@@ -1,0 +1,126 @@
+
+
+body{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow:hidden ;
+    
+}
+
+.menu{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    height: 9em;
+    padding: 0 2em 1em;
+    width: 37.50em;
+}
+
+.menu::before{
+    content: '';
+    width: 100%;
+    height: 8em;
+    background-color: #181817;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    border-radius: 2em;
+    z-index: -1;
+}
+
+input{
+    display: none;
+}
+
+label{
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.2em;
+    min-width: 5em;
+    margin: 0.4em 0.6em 2em;
+    text-align: center;
+    display: inline-grid;
+    align-items: flex-end;
+    position: relative;
+    cursor: pointer;
+    color: rgb(100,100,100);
+}
+
+label:hover{
+    color: white;
+    text-shadow: 0 0 5px turquoise, 0 0 10px turquoise;
+    transition: all .5s ease;
+}
+
+input:checked+label{
+    color: white;
+    height: 130px;
+}
+
+.selector{
+    background: 
+    radial-gradient(circle at 50% 50%, #fff8 30px, #fff0 45px, #fff 50px, #fff0 50px 100%),
+    radial-gradient(circle at 50% 50%, #2196f3 0 45px, #fff0 50px 100%),
+    radial-gradient(circle at 50% 75px, #181818 0 70px, #fff0 70px 100%);
+
+    width: 95px;
+    height: 95px;
+    position: absolute;
+    left: 0;
+    bottom: 47px;
+    transform: all .5s cubic-bezier(0.68,-.55,0.27,1.55) 0s;
+    z-index: -1;
+    border-radius: 100%;
+    border: 1.2em solid black;
+    opacity: 0;
+}
+#home:checked ~ .selector{
+    left: 1.1em;
+    transition: all .5s ease;
+}
+
+#services:checked ~ .selector{
+    left: 11.4em;
+    transition: all .5s ease;
+    filter: hue-rotate(105deg);
+}
+
+#contactus:checked ~ .selector{
+    left: 21.4em;
+    transition: all .5s ease;
+    filter: hue-rotate(50deg);
+}
+
+#address:checked ~ .selector{
+    left: 31.3em;
+    filter: hue-rotate(180deg);
+    transition: all .5s ease;
+}
+
+.selector::after{
+    content: '';
+    position: absolute;
+    bottom: -80px;
+    width: 5em;
+    height: 10px;
+    background: #181817;
+    left: calc(50% - 40px);
+    border-radius: 5px 5px 15px 15px;
+}
+
+input:checked ~ .selector::after{
+    box-shadow: 0 -20px 35px 8px #2196f3;
+}
+
+label::after,label::before{
+    content: '';
+    position: absolute;
+    box-sizing: border-box;
+}
+
+input:checked ~ .selector{
+    opacity: 1;
+}
